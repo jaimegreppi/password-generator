@@ -12,7 +12,7 @@ body {
 #main {
     margin: 50px;
     /* background-color: #ECFDF5; */
-    background-color: light dark(#ECFDF5, #1F2937);
+    background-color: light-dark(#ECFDF5, #1F2937);
     padding: 80px 50px;
     color: light-dark(#6B7280, #D5D4D8);
 }
