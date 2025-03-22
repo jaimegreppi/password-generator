@@ -12,8 +12,8 @@ let char = []
 let pw = []
 let loopN = 0
 let pwEl = []
-let provisional = ""
-let message
+let randomPw = ""
+let copiedMsg
 
 let upperEl = document.getElementById("upper-el")
 let lowerEl = document.getElementById("lower-el")
@@ -21,29 +21,8 @@ let numbersEl = document.getElementById("numbers-el")
 let symbolsEl = document.getElementById("symbols-el")
 var pwsDiv = document.getElementById("pws-div")
 
-let lightTheme = true
-
 let mainEl = document.getElementById("main")
 let pEl = document.getElementsByTagName("P")
-
-// const localStorageTheme = localStorage.getItem("theme");
-// const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
-console.log("color-scheme")
-
-/* function toggleMode() {
-    if (lightTheme) {
-        lightTheme = false
-        console.log("light theme: " + lightTheme)
-        mainEl.setAttribute("id", "dark-main")
-        pEl.classList.toggle("dark-p")
-    } else {
-        lightTheme = true
-        console.log("light theme: " + lightTheme)
-        mainEl.setAttribute("id", "main")
-        // pEl.classList.toggle("dark-p")
-    }
-    
-} */
 
 function discardCharTypesNotSelected() {
     if (isCharTypeSelected[0] === false) {
@@ -86,7 +65,7 @@ function checkStructure() {
 } 
 
 function assignPwChars() {
-    provisional = ""
+    randomPw = ""
     for (let i = 0; i < pwLentghEl; i++) {
         if (pwStructure[i] === upper) {
             char[i] = upper[Math.floor (Math.random() * upper.length)]
@@ -97,9 +76,9 @@ function assignPwChars() {
         } else {
             char[i] = symbols[Math.floor (Math.random() * symbols.length)]
         }
-        provisional += char[i]
+        randomPw += char[i]
     }
-    return provisional
+    return randomPw
 }
 
 function comparePw() {
@@ -112,14 +91,14 @@ function comparePw() {
 }
 
 const copyToClipboard = function() {
-    if (message) {
-        message.remove()
+    if (copiedMsg) {
+        copiedMsg.remove()
     }
     navigator.clipboard.writeText(this.textContent)
-    message = document.createElement("p")
-    this.after(message)
-    message.setAttribute("class", "legend")
-    message.textContent = "Copied to clipboard"
+    copiedMsg = document.createElement("p")
+    this.after(copiedMsg)
+    copiedMsg.setAttribute("class", "note")
+    copiedMsg.textContent = "copiedMsg to clipboard"
 }
 
 function generatePasswords() {
@@ -132,6 +111,10 @@ function generatePasswords() {
         discardCharTypesNotSelected()
         pwLentghEl = document.getElementById("pw-length-el").value
         pwQtEl = document.getElementById("pw-qt-el").value
+        copyEl = document.createElement("p")
+        pwsDiv.append(copyEl)
+        copyEl.setAttribute("class", "note")
+        copyEl.textContent = "Click to copy"
         for (let i = 0; i < pwQtEl; i++) {
             generatePwStructure()
             checkStructure()

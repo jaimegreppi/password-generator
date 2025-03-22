@@ -11,40 +11,44 @@ body {
 
 #main {
     margin: 50px;
-    /* background-color: #ECFDF5; */
     background-color: light-dark(#ECFDF5, #1F2937);
     padding: 80px 50px;
     color: light-dark(#6B7280, #D5D4D8);
 }
 
-/* #dark-main {
-    margin: 50px;
-    background-color: #1F2937;
-    padding: 80px 50px;
-    color: #6B7280;
-} */
-
 h1 {
     font-family: "Karla", sans-serif;
-    color: light-dark(black, white ); /* precisar colores */
+    font-size: 40px;
+    color: light-dark(black, white );
 }
 
  #color-span {
     color: light-dark(#10B981, #4ADF86);
 }
 
-/* .dark-p {
-    color: #D5D4D8;
-} */
+.number-input {
+    width: 45px;
+    text-align: right;
+}
+
+.note {
+    font-size: 13px;
+}
 
 fieldset {
-    margin: 15px 10px;
-    padding-bottom: 15px;
+    width: 220px;
+    margin: 20px auto 30px auto;
+    padding-bottom: 12px;
+    border: 1px solid (#6B7280, #D5D4D8);
     border-radius: 5px;
 }
 
+.checkbox-el {
+    margin: 7px 5px;
+}
+
 #generate-btn {
-    margin: 30px;
+    margin: 35px;
     background-color: #10B981;
     border: none;
     border-radius: 5px;
@@ -60,9 +64,8 @@ fieldset {
 
 .result {
     display: block;
-    width: 200px;
-    margin: 20px auto;
-    border: 1px solid black;
+    width: 180px;
+    margin: 20px auto 5px auto;
     border-radius: 5px;
     padding: 5px;
     background-color: #273549;
