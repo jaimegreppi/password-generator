@@ -98,7 +98,7 @@ const copyToClipboard = function() {
     copiedMsg = document.createElement("p")
     this.after(copiedMsg)
     copiedMsg.setAttribute("class", "note")
-    copiedMsg.textContent = "copiedMsg to clipboard"
+    copiedMsg.textContent = "Copied to clipboard"
 }
 
 function generatePasswords() {
